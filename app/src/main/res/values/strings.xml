@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NotesVIewModel</string>
+    <string name="inserire">inserire nota</string>
+    <string name="cacellare">cancel</string>
+</resources>
