@@ -1,7 +1,11 @@
 package com.example.notesviewmodel.views.views
 
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.afollestad.materialdialogs.MaterialDialog
@@ -21,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
@@ -28,9 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         setInitDysplayInf()
-
-
     }
+
+
 
     private fun setInitDysplayInf() {
         viewModel = ViewModelProvider(this).get(VIewModelNotes::class.java)
@@ -41,10 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         var titolo: String = sheetBinding.etTito.text.toString()
         var note: String = sheetBinding.etNota.text.toString()
-
         viewModel.insert(EntitiyNote(0, titolo, note))
-
-
     }
     private fun butonsheet() {
         sheetBinding = LayoutSheetBinding.inflate(layoutInflater)
@@ -65,11 +67,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
-
     }
-
-    fun buttonFabInsert() {
+    private fun buttonFabInsert() {
         binding.fab.setOnClickListener {
             butonsheet()
         }

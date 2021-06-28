@@ -1,6 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -23,39 +22,66 @@
         app:layout_constraintTop_toTopOf="parent"
 
 
-        card_view:cardBackgroundColor="#A1887F"
-        card_view:cardCornerRadius="16dp"
-        card_view:cardElevation="8dp">
+        app:cardBackgroundColor="#A1887F"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
 
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/t_note"
-                android:layout_width="188dp"
-                android:layout_height="74dp"
-                android:contextClickable="false"
+                android:layout_width="246dp"
+                android:layout_height="134dp"
+                android:fontFamily="@font/amaranth"
                 android:text="motes"
-                app:layout_constraintTop_toBottomOf="@+id/t_titolo"
-                card_view:layout_constraintEnd_toEndOf="@+id/t_titolo"
-                card_view:layout_constraintHorizontal_bias="0.5"
-                card_view:layout_constraintStart_toStartOf="@+id/t_titolo"
-                tools:ignore="MissingConstraints" />
+
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/t_titolo" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/t_titolo"
                 android:layout_width="183dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/amaranth"
                 android:minEms="100"
+
                 android:text="titolo"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/t_note"
+                app:layout_constraintEnd_toEndOf="@+id/t_note"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/t_note"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amarante"
+                android:text="TITOLO"
+                android:textSize="20sp"
+
+
+                app:layout_constraintBottom_toTopOf="@+id/t_titolo"
+                app:layout_constraintEnd_toEndOf="@+id/t_titolo"
+                app:layout_constraintStart_toStartOf="@+id/t_titolo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/im_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
