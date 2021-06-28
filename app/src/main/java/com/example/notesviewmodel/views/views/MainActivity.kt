@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
-
     private fun butonsheet() {
         sheetBinding = LayoutSheetBinding.inflate(layoutInflater)
         val btnInsert = MaterialDialog(this, BottomSheet()).show {

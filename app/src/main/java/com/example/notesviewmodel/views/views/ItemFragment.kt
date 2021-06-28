@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.notesviewmodel.databinding.FragmentItemListBinding
 import com.example.notesviewmodel.databinding.LayoutSheetBinding
-import com.example.notesviewmodel.views.db.EntitiyNote
 import com.example.notesviewmodel.views.models.snack
 import com.example.notesviewmodel.views.viewmodel.VIewModelNotes
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
 
 /**
  * A fragment representing a list of Items.
@@ -42,6 +43,7 @@ class ItemFragment : Fragment() {
             MyItemRecyclerViewAdapter.OnNotesCLickListainer {
         })
         with(binding.recy) {
+
             adapter = mAdapter
             setHasFixedSize(true)
         }
