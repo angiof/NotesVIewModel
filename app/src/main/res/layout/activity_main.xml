@@ -12,6 +12,8 @@
         android:layout_height="match_parent"
         android:background="@color/teal_700">
 
+
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="com.example.notesviewmodel.views.views.ItemFragment"

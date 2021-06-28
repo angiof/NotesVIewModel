@@ -16,9 +16,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    lateinit var sheetBinding: LayoutSheetBinding
-    lateinit var viewModel: VIewModelNotes
-    lateinit var binding: ActivityMainBinding
+    private lateinit var sheetBinding: LayoutSheetBinding
+    private lateinit var viewModel: VIewModelNotes
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
         setInitDysplayInf()
 
 
