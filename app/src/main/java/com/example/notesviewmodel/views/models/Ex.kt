@@ -7,7 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 
 fun snack(view: View){
 
-    val snacki: Unit = Snackbar.make(view,"ddd",Snackbar.LENGTH_LONG).show()
+    val snacki: Unit = Snackbar.make(view,"premuto",Snackbar.LENGTH_LONG).show()
 
 
 }

@@ -3,7 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:title="modificare"
         android:id="@+id/modificare"
         android:icon="@drawable/ic_baseline_edit_24"
+        />
+
+
+    <item
+        android:title="eliminare"
+        android:id="@+id/elimina"
+        android:icon="@drawable/ic_baseline_delete_24"
         />
 </menu>

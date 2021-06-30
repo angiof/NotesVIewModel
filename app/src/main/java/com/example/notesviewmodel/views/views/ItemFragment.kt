@@ -1,13 +1,17 @@
 package com.example.notesviewmodel.views.views
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.notesviewmodel.R
 import com.example.notesviewmodel.databinding.FragmentItemListBinding
 import com.example.notesviewmodel.databinding.LayoutSheetBinding
@@ -43,15 +47,26 @@ class ItemFragment : Fragment() {
     }
 
     private fun setAdapterRecy() {
-        mAdapter = MyItemRecyclerViewAdapter(requireContext(), object :
-            MyItemRecyclerViewAdapter.OnNotesCLickListainer {
-            override suspend fun onLonClick(item: EntitiyNote) {
+        mAdapter = MyItemRecyclerViewAdapter(requireContext(), object : MyItemRecyclerViewAdapter.OnNotesCLickListainer {
+
+                @RequiresApi(Build.VERSION_CODES.Q)
+                override suspend fun onLonClick(item: EntitiyNote) {
+
+
+                   // viewModel.cancellaNotesFromViewModel(item)
+                    lifecycleScope.launchWhenResumed {
+
+                    }
+
 
             }
 
-            override fun click(item: EntitiyNote) {
-                TODO("Not yet implemented")
-            }
+                    override fun click(item: EntitiyNote) {
+
+
+
+                    }
+
 
         })
         with(binding.recy) {

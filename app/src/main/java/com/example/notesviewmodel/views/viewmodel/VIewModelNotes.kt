@@ -21,5 +21,9 @@ class VIewModelNotes(application: Application) : AndroidViewModel(application) {
 
     }
 
+    suspend fun cancellaNotesFromViewModel(entitiyNote: EntitiyNote){
+        repositorioFromViewModel.CancellaNotesFromRepo(entitiyNote)
+    }
+
 
 }

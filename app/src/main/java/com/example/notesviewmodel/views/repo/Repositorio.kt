@@ -22,4 +22,9 @@ class Repositorio(context: Context) {
 
     }
 
+    suspend fun CancellaNotesFromRepo(entityNote: EntitiyNote) {
+        daoRepo.delateNotes(entityNote)
+
+    }
+
 }
