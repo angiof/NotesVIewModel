@@ -15,6 +15,8 @@ class Repositorio(context: Context) {
     //richiamo della query dalla var daoRepo che ritona un live data collegato alla qauery scelta
     var stampaTuttorepo: LiveData<List<EntitiyNote>> = daoRepo.getAll()
 
+
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(entityNote: EntitiyNote) {
@@ -24,6 +26,11 @@ class Repositorio(context: Context) {
 
     suspend fun CancellaNotesFromRepo(entityNote: EntitiyNote) {
         daoRepo.delateNotes(entityNote)
+
+    }
+
+    fun TrackFrasi(string: String): LiveData<List<EntitiyNote>> {
+        return  daoRepo.cercaFrase(string = string)
 
     }
 

@@ -46,6 +46,10 @@ class ItemFragment : Fragment() {
 
     }
 
+
+
+
+
     private fun setAdapterRecy() {
         mAdapter = MyItemRecyclerViewAdapter(requireContext(), object : MyItemRecyclerViewAdapter.OnNotesCLickListainer {
 
@@ -67,6 +71,11 @@ class ItemFragment : Fragment() {
 
                     }
 
+            override suspend fun delateLisatiner(entitiyNote: EntitiyNote) {
+
+                viewModel.cancellaNotesFromViewModel(entitiyNote)
+            }
+
 
         })
         with(binding.recy) {
@@ -78,7 +87,7 @@ class ItemFragment : Fragment() {
     }
     private fun setViewModel() {
         viewModel = ViewModelProvider(requireActivity()).get(VIewModelNotes::class.java)
-        viewModel.notesFromViewModel.observe(viewLifecycleOwner) {
+        viewModel.frasiTrack.observe(viewLifecycleOwner) {
             mAdapter.setDataList(ArrayList(it))
             mAdapter.notifyDataSetChanged()
         }
@@ -91,6 +100,9 @@ class ItemFragment : Fragment() {
         activity?.window?.let { snack(it.decorView) }
 
     }
+
+
+
 
 }
 

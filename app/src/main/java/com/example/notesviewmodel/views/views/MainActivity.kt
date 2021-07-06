@@ -1,9 +1,13 @@
 package com.example.notesviewmodel.views.views
 
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
@@ -21,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sheetBinding: LayoutSheetBinding
     private lateinit var viewModel: VIewModelNotes
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mFfragrmentManager: FragmentManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         setInitDysplayInf()
+
+        cercaByTitolo()
+
+        hideView()
     }
 
 
@@ -72,4 +81,59 @@ class MainActivity : AppCompatActivity() {
             butonsheet()
         }
     }
+
+    private fun cercaByTitolo() {
+
+        val finderText = binding.cercaTitolo
+        finderText.addTextChangedListener { x ->
+            viewModel.aggiorna(x.toString())
+
+        }
+    }
+    fun hideView() {
+
+        val finderstatus = binding.cercaTitolo
+        mFfragrmentManager = supportFragmentManager
+
+        val homeFragment = ItemFragment()
+        binding.bottomAppBar.setOnMenuItemClickListener {
+
+            when (it.itemId) {
+                R.id.menu_cercare -> {
+
+                    if (finderstatus.isVisible) {
+                        finderstatus.visibility = View.INVISIBLE
+                    } else {
+                        finderstatus.visibility = View.VISIBLE
+                    }
+
+                }
+
+            }
+
+            if (finderstatus.isVisible){
+                binding.bottomAppBar.visibility=View.INVISIBLE
+                if (finderstatus.isInvisible and binding.bottomAppBar.isVisible){
+                    binding.bottomAppBar.visibility=View.VISIBLE
+                    finderstatus.visibility=View.INVISIBLE
+                }
+
+                if (finderstatus.isVisible and binding.bottomAppBar.isInvisible){
+                    binding.bottomAppBar.visibility=View.VISIBLE
+
+                }
+
+            }
+
+
+
+            return@setOnMenuItemClickListener true
+
+
+        }
+
+
+    }
+
+
 }

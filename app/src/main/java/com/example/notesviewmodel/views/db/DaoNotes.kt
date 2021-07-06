@@ -18,5 +18,7 @@ interface DaoNotes {
     @Query("SELECT * FROM notes order by titolo asc ")
     fun getAll(): LiveData<List<EntitiyNote>>
 
+    @Query("SELECT * FROM notes WHERE titolo LIKE '%' || :string || '%' ")
+    fun cercaFrase(string: String): LiveData<List<EntitiyNote>>
 
 }

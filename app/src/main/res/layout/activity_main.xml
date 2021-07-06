@@ -25,19 +25,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_ecerca"
+            android:id="@+id/layout_e_cerca"
+            android:elevation="22dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/fragmentContainerView">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cerca_titolo"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint"
-                android:visibility="visible" />
+                android:hint="ricerca" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

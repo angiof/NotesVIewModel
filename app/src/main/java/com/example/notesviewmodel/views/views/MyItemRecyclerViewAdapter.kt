@@ -1,21 +1,17 @@
 package com.example.notesviewmodel.views.views
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.os.Build
 import android.view.*
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesviewmodel.R
 import com.example.notesviewmodel.databinding.FragmentItemBinding
 import com.example.notesviewmodel.views.db.EntitiyNote
-import com.example.notesviewmodel.views.models.Myapp
 import com.example.notesviewmodel.views.viewmodel.VIewModelNotes
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -39,25 +35,23 @@ class MyItemRecyclerViewAdapter(val context: Context, val onNotesCLickListainer:
 
         holder.binding.tNote.setText(dataset[position].note)
         holder.binding.tTitolo.setText(dataset[position].titolo)
-        holder.binding.cardView.setOnLongClickListener {
-            Toast.makeText(context, "premuto", Toast.LENGTH_SHORT).show()
 
+
+        holder.binding.btnDelate.setOnClickListener {
             GlobalScope.launch {
 
-                onNotesCLickListainer.onLonClick(dataset[position])
-
-
+                onNotesCLickListainer.delateLisatiner(dataset[position])
             }
 
-
-
-            return@setOnLongClickListener true
         }
 
-        holder.binding.imBtn.setOnClickListener {
-            pop(holder.binding.cardView)
 
-        }
+
+
+     //   holder.binding.imBtn.setOnClickListener {
+        //    pop(holder.binding.cardView)
+
+      //  }
 
     }
 
@@ -66,6 +60,7 @@ class MyItemRecyclerViewAdapter(val context: Context, val onNotesCLickListainer:
     interface OnNotesCLickListainer {
         suspend fun onLonClick(item: EntitiyNote)
         fun click(item: EntitiyNote)
+        suspend fun delateLisatiner(entitiyNote: EntitiyNote)
 
     }
 
